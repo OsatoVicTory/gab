@@ -1,0 +1,38 @@
+div .CW, .CW__Content {
+    width: 100%;
+    height: 100%;
+}
+.CW {
+    overflow: hidden;
+}
+.CW__Content {
+    display: flex;
+}
+.CW__Content .CW__Side {
+    width: 40%;
+    background-color: #f0f2f5;
+}
+.CW__Content .CW__Main {
+    width: 60%;
+}
+@media screen and (min-width: 1200px) {
+    .CW__Content .CW__Side {
+        width: 35%;
+    }
+    .CW__Content .CW__Main {
+        width: 65%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .CW .CW__Content {
+        width: 200%;
+        transform: translateX(0%);
+    }
+    .CW__Content.true {
+        transform: translateX(-50%);
+    }
+    .CW__Content .CW__Main,
+    .CW__Content .CW__Side {
+        width: 50%;
+    }
+}

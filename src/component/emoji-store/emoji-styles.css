@@ -1,0 +1,86 @@
+.Emoji {
+    width: 400px;
+    border: 1px solid #e2e8f0;
+    height: auto;
+}
+.Emoji .Emoji-wrapper {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+.Emoji-wrapper .Emoji-picker {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+.Emoji-picker > div {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+.epl-div-main {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 4px;
+    cursor: pointer;
+}
+.epl_div, .text-emoji {
+    color: transparent;
+    caret-color: black;
+}
+.text-emoji {
+    width: 24px;
+    height: 24px;
+    display: inline-grid;
+    place-items: end;
+}
+.Emoji-wrapper .Emoji-input {
+    width: 100%;
+    position: relative;
+}
+.emoji-placeholder {
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0.5ch;
+    z-index: 10;
+}
+.Emoji-input .text-editor {
+    width: 100%;
+    min-height: 40px;
+    max-height: 100px;
+    /* white-space: pre-wrap; */
+    overflow-y: auto;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 9px 5px;
+}
+.text-editor .emoji-p {
+    width: 100%;
+    white-space: pre-wrap;
+    user-select: text;
+    word-break: break-word;
+    text-indent: 0px;
+    margin: 0;
+    font-size: 15px;
+}
+.emoji-p span,.emojiRender span {
+    font-size: inherit;
+}
+.epl_div, .text-emoji-main,
+.emojiRender {
+    image-rendering: -webkit-optimize-contrast;
+    vertical-align: middle;
+    zoom: 1;
+    display: inline-block;
+}
+.emojiRender span {
+    color: transparent !important;
+}

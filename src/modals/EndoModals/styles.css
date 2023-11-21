@@ -1,0 +1,327 @@
+.EndoModal {
+    width: max-content !important;
+    height: max-content !important;
+    position: fixed;
+    z-index: 999999;
+}
+.box-endomodal {
+    box-shadow: var(--boxendomodal);
+}
+.reaction-emoji-few {
+    width: 250px;
+    height: auto;
+}
+.reaction-emoji-all, .reaction-emoji-few {
+    background-color: #fff;
+    border-radius: 10px;
+}
+.reaction-emoji-few .REF__Container {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.REF__Container > div {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.REF__Container > div:first-child {
+    margin-left: 0px;
+}
+.REF__Container > div img {
+    width: 100%;
+    height: 100%;
+}
+.REF-Icon {
+    margin-left: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.REF-icon {
+    width: 25px;
+    height: 25px;
+    color: #A5A4A4;
+}
+.reaction-emoji-all, .emojiModal {
+    width: 270px;
+    height: 300px;
+    box-sizing: border-box;
+    padding: 5px;
+}
+.emojiModal {
+    padding: 0px;
+    border-radius: 10px;
+}
+.reaction-emoji-all .REA__Container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.REA__Container .EmojiPickerReact.epr-main {
+    border: none !important;
+}
+.messageDropdownModal, .editParticipant {
+    width: max-content;
+    min-width: 200px;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 3px;
+    box-sizing: border-box;
+    padding: 6px 0px;
+}
+.messageDropdownModal > div,
+.editParticipant > div {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    padding-right: 50px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.editParticipant {
+    width: 240px;
+}
+.messageDropdownModal > div:hover,
+.editParticipant > div:hover {
+    background-color: var(--stdbackground);
+}
+.messageDropdownModal-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--grey);
+}
+.messageDropdownModal > div span {
+    font-size: 15px;
+    margin-left: 10px;
+    color: var(--grey);
+}
+.red {
+    font-size: 15px;
+    color: var(--red);
+}
+.AllReactions {
+    height: 300px;
+    width: 280px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999999;
+}
+.AllReactions__ {
+    height: 300px;
+    width: 280px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.AllReactions__ header,
+.AllReactions__ main,
+.ar-header ul, .arm-lists, .arm-lists li {
+    width: 100%;
+}
+.ar-header {
+    overflow-x: auto;
+    box-sizing: border-box;
+    padding: 5px;
+}
+.AllReactions__ ul {
+    margin: 0;
+    padding: 0;
+    margin-top: 3px;
+}
+.AllReactions__, .AllReactions__ ul,
+.arm-txt {
+    display: flex;
+    flex-direction: column;
+}
+.ar__Lists {
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 35px;
+}
+.ar__List, .ar__List > div {
+    display: flex;
+    align-items: center;
+}
+.ar__List {
+    font-size: 15px;
+    color: #A5A4A4;
+    margin-left: 10px;
+    border-bottom: 2px solid var(--stdbackground);
+    box-sizing: border-box;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+.ar__List.true {
+    border-bottom: 1px solid var(--green);
+}
+.ar__List img {
+    width: 15px;
+    height: 15px;
+}
+.ar__List:first-child {
+    margin-left: 0px;
+}
+.ar__List .span {
+    margin-left: 5px;
+}
+div .ar-main {
+    height: calc(100% - 45px);
+    overflow-y: auto;
+}
+.ar-main .ar-loading {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ar-loading > h2 {
+    margin: 0;
+    font-size: 18px;
+    text-align: center;
+}
+.ar-header::-webkit-scrollbar,
+.ar-main::-webkit-scrollbar,
+.MIM::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    /* background-color: #A5A4A4; */
+}
+.ar-header::-webkit-scrollbar-track,
+.ar-main::-webkit-scrollbar-track,
+.MIM::-webkit-scrollbar-track {
+    background-color: var(--stdbackground);
+}
+.ar-header::-webkit-scrollbar-thumb,
+.ar-main::-webkit-scrollbar-thumb,
+.MIM::-webkit-scrollbar-thumb {
+    background-color: var(--grey);
+}
+.ar__Lists {
+    flex-direction: row !important;
+}
+.ar__List .span {
+    margin-left: 6px;
+}
+.arm-list {
+    cursor: pointer;
+    border-top: 1px solid #e2e8f0;
+    box-sizing: border-box;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 40px calc(100% - 100px) 30px;
+    grid-gap: 10px;
+    overflow-x: hidden;
+    align-items: center;
+    cursor: pointer;
+}
+.arm-list:hover {
+    background-color: var(--stdbackground);
+}
+.arm-list img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.arm-txt > span {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+.arm-txt .fnt-400 {
+    color: #A5A4A4;
+}
+.arm-list-emoji img {
+    width: 30px !important;
+    height: 30px !important;
+}
+/* already fixed scrollbar from MIM on top */
+.messageInfoModal {
+    min-width: 240px;
+    max-width: 280px;
+    max-height: 350px;
+    background-color: var(--white);
+}
+div .MIM {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+.MIM > div, .MIM > ul {
+    width: 100%;
+    height: auto;
+}
+.MIM, .mim-div {
+    display: flex;
+    flex-direction: column;
+}
+.mim-div-top, .mim-title,
+.mim__Lists li, .mim-txt-div {
+    display: flex;
+    align-items: center;
+}
+.mim-title-icon {
+    width: 14px;
+    height: 14px;
+}
+.mim-div-top > span {
+    margin-left: 6px;
+}
+.mim-title, .mim__Lists li,
+.mim-txt-div { 
+    justify-content: space-between; 
+}
+.mim-div, .mim-title,
+.mim__Lists li {
+    box-sizing: border-box;
+    padding: 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+.mim__Lists {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.mim__Lists li {
+    width: 100%;
+    height: auto;
+}
+.mim__List img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+.mim__List > div {
+    width: calc(100% - 55px);
+    margin-left: 0px;
+}
+div .mim-txt-div {
+    width: 100%;
+    overflow: hidden;
+}
+.mim-txt-div .mim-first {
+    /* width: calc(100% - 100px); */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
+.mim-sec-top {
+    width: 85px;
+    margin-left: 5px;
+}
+.mim-txt-div .mim-sec {
+    width: 100px;
+}

@@ -1,0 +1,238 @@
+div .Footer__Scrapped, .Footer__Scrapped .Footer__Scrapped__Div,
+div .Footer__Tagged, .Footer__Tagged .Footer__Tagged__Div,
+div .Footer__Images,
+.Footer__Scrapped .fS__texts,
+.fS__texts div, .Footer__Images > div {
+    width: 100%;
+}
+.Footer__Scrapped__Div {
+    height: 70px;
+    max-height: unset;
+    position: relative;
+    border-radius: 7.5px;
+    background-color: #fafafa;
+}
+.Footer__Scrapped,
+.Footer__Tagged__Div,
+div .Footer__Images {
+    position: relative;
+    max-height: 70px;
+}
+.Footer__Scrapped {
+    padding: 10px;
+    height: 90px;
+    max-height: unset;
+}
+.Footer__Tagged {
+    padding: 5px 10px;
+    min-height: 60px;
+    max-height: 80px;
+}
+.fS_close, .fT_close, .Footer__Scrapped,
+.footer__Images, .fI_close {
+    display: flex;
+    align-items: center;
+}
+.fS_close, .fT_close, .fI_close {
+    justify-content: center;
+}
+.fS_image {
+    width: 80px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.fS_image .fS_loader,
+.fS_image > img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 7.5px;
+    border-bottom-left-radius: 7.5px;
+}
+.fS_image .react-loading-skeleton {
+    line-height: unset;
+    border-radius: unset;
+    border-top-left-radius: 7.5px;
+    border-bottom-left-radius: 7.5px;
+}
+.Footer__Scrapped__Div .fS_texts {
+    width: calc(100% - 80px);
+    padding: 5px 10px;
+    margin-left: 80px;
+}
+.fS_texts > div span,
+.fT__texts .fT_sender {
+    width: 100%;
+    display: inline-block;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.fS_texts > div {
+    width: 100%;
+    max-height: 20px;
+}
+.fS_texts_top .fS_loader {
+    height: 20px;
+}
+.fS_texts_mid .fS_loader {
+    height: 18px;
+    margin-top: 3px;
+}
+.fS_texts_base .fS_loader {
+    height: 15px;
+    margin-top: 3px;
+}
+/* .fS_loader > span {
+    height: 100%;
+} */
+.fS_title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+.fS_p {
+    font-size: 13px;
+    line-height: 18px;
+}
+.fS_txt {
+    font-size: 12px;
+    line-height: 15px;
+    color: var(--grey);
+}
+.fS_close, .fT_close, .fI_close {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    border-radius: 50%;
+    z-index: 99;
+    background-color: #fafafa;
+    box-shadow: var(--endomodal);
+}
+.fS_close_icon, .fT_close_icon, .fI_close_icon {
+    width: 13px;
+    height: 13px;
+    color: var(--grey);
+}
+.Footer__Tagged__Div {
+    background-color: #fbfbfb;
+    border-radius: 7.5px;
+    overflow: hidden;
+}
+.fT__thread {
+    width: 4px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: var(--greytext);
+    display: inline-block;
+}
+div .fT__texts {
+    width: calc(100% - 3px);
+    padding: 3px 8px;
+    padding-bottom: 8px;
+    margin-left: 3px;
+}
+.fT__texts .fT_sender {
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--greytext);
+    font-size: 14px;
+    line-height: 15px;
+    font-weight: 500;
+}
+.fT__texts .fT__message {
+    width: 100%;
+    display: -webkit-box;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    -webkit-line-clamp: 2;
+    max-height: 40px;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--grey);
+}
+.fT_icon {
+    width: 14px;
+    height: 14px;
+    color: var(--grey);
+}
+.fT__message .fT_txt {
+    width: 100%;
+    display: -webkit-box;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    -webkit-line-clamp: 2;
+    max-height: 40px;
+    margin-left: 2px;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--grey);
+}
+.fT_txt_inner {
+    font: inherit;
+    color: inherit;
+    line-height: inherit;
+}
+.fT__texts.true .fT__message,
+.fT__texts.true .fT_sender {
+    width: calc(100% - 45px);
+}
+.fT__img {
+    margin-left: 5px;
+    width: 40px;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 10;
+}
+.fT__img img {
+    object-fit: cover !important;
+}
+.footer__Images {
+    padding: 0px 10px;
+    padding-bottom: 10px;
+}
+.footer__Images > div {
+    margin-left: 10px;
+}
+.footer__Images > div:first-child {
+    margin-left: 0px;
+}
+.footer__Image {
+    width: 55px;
+    height: 50px;
+    position: relative;
+}
+.footer__Image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+}
+.fI_close {
+    border-radius: 50%;
+    background-color: var(--white);
+    top: 3px;
+    right: 3px;
+    box-shadow: var(--endomodal);
+}
+.fI_close_icon {
+    width: 13px;
+    height: 12px;
+}

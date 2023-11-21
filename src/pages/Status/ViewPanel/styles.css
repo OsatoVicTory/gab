@@ -1,0 +1,206 @@
+div .Status__View {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.Status__View .status__View {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(27,27,27,0.95);
+}
+.status__View .status__View__Wrapper {
+    width: min(80%, 900px);
+    height: calc(100% - 100px);
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+.status__View__Wrapper header,
+.status__View__Wrapper main {
+    width: min(100%, 500px);
+}
+.status__View__Wrapper header {
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.status__View__Wrapper footer {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+    z-index: 10;
+    background-color: rgba(27,27,27,0.6);
+    display: flex;
+    justify-content: center;
+}
+.sVW__controls {
+    position: absolute;
+    z-index: 99;
+    background-color: rgba(27, 27, 27, 0.1);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+.sVW__controls {
+    top: 10px;
+}
+.sVW__controls.arrow {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.sVW__controls.right {
+    right: 5px;
+}
+.sVW__controls.left {
+    left: 5px;
+}
+.sVW__controls.forDelete {
+    right: 45px;
+}
+.sVW__controls_icon {
+    width: 20px;
+    height: 20px;
+    color: var(--white);
+}
+header .trail__Track,
+header .status__View__User {
+    width: 100%;
+}
+.status__View__User {
+    padding: 10px;
+    padding-top: 16px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(27,27,27,0.95);
+}
+.trail__Track {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+.trail {
+    background-color: var(--grey);
+    border-radius: 5px;
+    height: 8px;
+}
+.trail > div {
+    background-color: white;
+    border-radius: 8px;
+    transition: all 0.9s ease-in-out;
+    height: 8px;
+}
+.svU__Image {
+    width: 40px;
+    height: 40px;
+}
+.svU__Image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+div .svU-texts {
+    width: calc(100% - 55px);
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.svut-top {
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--white);
+    margin-top: -3px;
+}
+.svut-base {
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 2px;
+    color: var(--white);
+}
+main .status__View__Main {
+    width: 100%;
+    height: 100%;
+}
+footer .status_view_footer_plain {
+    width: max-content;
+    padding: 10px;
+    background-color: rgba(27,27,27,0.3);
+}
+footer .status_view_footer {
+    width: 100%;
+    padding: 0px;
+    background-color: rgba(27,27,27,0.3);
+    display: flex;
+    justify-content: center;
+}
+.status_view_footer_plain, 
+.status_view_footer_plain > div {
+    display: flex;
+    align-items: center;
+}
+.status_view_footer_plain > div {
+    cursor: pointer;
+}
+.svfp_caption {
+    margin-left: 30px;
+}
+.svfp_icon {
+    width: 18px;
+    height: 18px;
+    color: var(--white);
+}
+.svfp_span {
+    font-size: 16px;
+    margin-left: 3px;
+    color: var(--white);
+}
+div .statusContent, .statusContent > div {
+    width: 100%;
+    height: 100%;
+}
+.statusContent > div {
+    display: flex;
+    align-items: center;
+}
+div .sCW__Wrapper {
+    height: max-content;
+    max-height: 100%;
+    width: 100%;
+    padding: 10px;
+}
+div .sCI__Wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sCW__Wrapper.write {
+    background-color: var(--white) !important;
+}
+.sCI__Wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.sCW__Wrapper.write span {
+    font-family: inherit;
+}
+@media screen and (max-width: 500px) { 
+    .status__View .status__View__Wrapper {
+        width: 100%;
+    }
+    .sVW__controls.forDelete {
+        right: 10px;
+        top: 45px !important;
+    }
+}

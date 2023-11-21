@@ -1,0 +1,68 @@
+.CaptionModal {
+    background-color: rgba(27,27,27,0.1);
+    position: fixed;
+    z-index: 9999;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    top: 100%;
+    transition: top 0.3s ease-in-out;
+}
+.CaptionModal.show {
+    top: 0px;
+}
+.CaptionModal .captionModal__Content {
+    width: max-content;
+    min-width: 300px;
+    max-width: min(95%, 500px);
+    height: max-content;
+    min-height: 100px;
+    max-height: 100%;
+    box-shadow: var(--endomodal);
+    background-color: var(--white);
+}
+.captionModal__Content > div {
+    width: 100%;
+    padding: 10px;
+}
+.cM_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--darkgreen);
+}
+.cM_title {
+    font-size: 16px;
+    color:var(--white);
+}
+.cmh_icon_div {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+.cmh_icon {
+    width: 15px;
+    height: 15px;
+    color: var(--white);
+}
+div .cM_main {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+div .cM_text {
+    font-size: 15px;
+    color: black;
+    line-height: 20px;
+    display: inline-block;
+    width: 100%;
+}
+.cM_text .cmt-inner {
+    font: inherit;
+    line-height: inherit;
+    color: inherit;
+}

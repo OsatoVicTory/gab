@@ -1,0 +1,45 @@
+div .Chat {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+}
+div .NoGab {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Chat .Chat__Left {
+    width: 45%;
+    height: 100%;
+}
+.Chat .Chat__Right {
+    width: 55%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    .Chat .Chat__Left {
+        width: 40%;
+    }
+    .Chat .Chat__Right {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .Chat .Chat__Right {
+        display: none;
+        width: 0;
+    }
+    .Chat.true .Chat__Right, .Chat .Chat__Left {
+        width: 100%;
+        display: block;
+    }
+    .Chat.true .Chat__Left {
+        display: none;
+        width: 0px;
+    }
+}

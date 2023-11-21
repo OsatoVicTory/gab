@@ -1,0 +1,225 @@
+.StatusSetting {
+    width: 450px;
+    box-shadow: var(--boxexomodal);
+    height: calc(100% - 40px);
+    background-color: var(--white);
+}
+.StatusSetting > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.Status__Setting header {
+    width: 100%;
+    height: 100px;
+}
+.ssh_title {
+    font-size: 16px;
+    color: var(--white);
+}
+header .sS_header_top {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: var(--darkgreen);
+    justify-content: space-between;
+}
+.ssh_close {
+    width: 27px;
+    height: 27px;
+    justify-content: center;
+    cursor: pointer;
+}
+.ssh_close_icon {
+    color: var(--white);
+    width: 18px;
+    height: 18px;
+}
+header .sS_header_search {
+    width: 100%;
+    padding: 10px 15px;
+}
+.sS_header_top, .sS_header_search, .ssh_close,
+.ss_main_list, .sS_footer, .ssml_checkbox,
+.ssfl ul, .ssfl_list, .ssfl_icon_div, .sS_footer_send {
+    display: flex;
+    align-items: center;
+}
+.sS_header_search .sS_search {
+    width: 100%;
+}
+.sS_search input {
+    width: 100%;
+    height: 35px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--stdbackground);
+    color: var(--greytext);
+    font-size: 15px;
+}
+.Status__Setting main {
+    width: 100%;
+    flex: 1 1 0;
+    overflow: hidden;
+}
+main .sS__main {
+    width: 100%;
+    overflow-y: auto;
+    height: 100%;
+}
+.sS__main ul {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.ss_main_lists li {
+    width: 100%;
+    padding: 10px 15px;
+    border-top: 1px solid #e2e8f0;
+}
+.ssml_checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    justify-content: center;
+}
+.ssml_checkbox_icon {
+    width: 20px;
+    height: 20px;
+    color: var(--grey);
+}
+.ssml_img {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
+.ssml_img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.ss_main_list .ssml_texts {
+    width: calc(100% - 95px);
+    margin-left: 15px;
+}
+.ssml_texts > span {
+    width: 100%;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.ssml_txt_17 {
+    font-size: 16px;
+    line-height: 19px;
+}
+.ssml_txt_14 {
+    font-size: 14px;
+    color: var(--greytext);
+    line-height: 16px;
+}
+.Status__Setting footer {
+    width: 100%;
+}
+footer .sS_footer {
+    width: 100%;
+    background-color: var(--stdbackground);
+    justify-content: space-between;
+    border-top: 0.6px solid #e2e8f0;
+}
+.sS_footer .sS_footer_left {
+    width: calc(100% - 50px);
+    padding: 10px 15px;
+    padding-right: 5px;
+}
+.sS_footer_left > div {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 3px;
+}
+.ssfl ul {
+    width: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.ssfl_list {
+    width: 120px;
+    height: 27px;
+    background-color: var(--white);
+    justify-content: space-between;
+    padding: 0px 6px;
+    border-radius: 5px;
+}
+.ssfl ul li {
+    margin-left: 10px;
+}
+.ssfl ul li:first-child {
+    margin-left: 0px;
+}
+.ssfl_list span {
+    display: inline-block;
+    width: calc(100% - 20px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 15px;
+    color: var(--greytext);
+}
+.ssfl_icon_div {
+    margin-left: 5px;
+    width: 15px;
+    height: 15px;
+    justify-content: center;
+    cursor: pointer;
+}
+.ssfl_icon {
+    width: 15px;
+    height: 15px;
+    color: var(--grey);
+}
+.sS_footer_right {
+    width: 50px;
+    /* background-color: var(--white); */
+    padding: 10px;
+    padding-right: 15px;
+}
+.sS_footer_send {
+    width: 30px;
+    height: 30px;
+    background-color: var(--green);
+    cursor: pointer;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: var(--endomodal);
+}
+.ss_footer_send_icon {
+    width: 20px;
+    height: 20px;
+    color: var(--white);
+}
+
+@media screen and (max-width: 450px) {
+    .StatusSetting {
+        width: 100%;
+        box-shadow: none;
+        height: 100%;
+    }
+    .ssml_img {
+        margin-left: 15px;
+    }
+    /* .Status__Setting header > div,
+    .ss_main_lists li, .sS_footer_right {
+        padding: 10px;
+    }
+    .sS_footer_left {
+        padding: 10px;
+        padding-right: 5px;
+    } */
+    .ss_main_list .ssml_texts {
+        width: calc(100% - 85px);
+        margin-left: 10px;
+    }
+}

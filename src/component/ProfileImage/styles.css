@@ -1,0 +1,80 @@
+div .profile__Img {
+    width: 45px;
+    height: 45px;
+}
+.Img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* .Img.status {
+    border: 1.5px solid #25d366;
+} */
+.Img img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.invite-img > div,
+.invite-img .Img,
+.invite-img img,
+.ch-image > div,
+.ch-image .Img,
+.ch-image img {
+    width: 45px;
+    height: 45px;
+    border: none;
+}
+
+.ch-image > div,
+.ch-image .Img,
+.ch-image img {
+    border-radius: 50%;
+}
+.convo__Container__Img > div,
+.convo__Container__Img .Img,
+.convo__Container__Img img {
+    width: 40px;
+    height: 40px;
+    border: none;
+}
+.pt__ .profile__Img,
+.pt__ .Img {
+    width: 50px;
+    height: 50px;
+}
+.Profile-box .profile__Img,
+.Profile-box .Img {
+    width: 120px;
+    height: 120px;
+}
+.pt__ .Img img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+.Profile-box .Img img {
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 400px) {
+    .convo__Container__Img > div,
+    .convo__Container__Img .Img,
+    .convo__Container__Img img {
+        width: 30px;
+        height: 30px;
+    }
+    .ch-image > div,
+    .ch-image .Img,
+    .ch-image img {
+        width: 40px;
+        height: 40px;
+    }
+}

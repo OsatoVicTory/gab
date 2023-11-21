@@ -1,0 +1,263 @@
+div .chatSidePanel {
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    position: relative;
+}
+.chatSidePanel header {
+    width: 100%;
+    height: 60px;
+    background: var(--stdbackground);
+}
+.chatSidePanel section {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+}
+.chatSidePanel main {
+    width: 100%;
+    height: calc(100% - 120px);
+    padding: 0px;
+}
+.chatSidePanel header > div {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+.chatSidePanel section > div {
+    width: 100%;
+    height: 100%;
+    background: var(--stdbackground);
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+.chatSidePanel main > div {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    overflow: hidden;
+}
+.chatSidePanel header > div,
+.csp-header-right, .csphr,
+.csp-search, .csp-main-list,
+.cspm-texts > div, .cspmtt, .cspmtb,
+.csp-footer-div {
+    display: flex;
+    align-items: center;
+}
+.chatSidePanel header > div,
+.csp-header-right, .csp-search,
+.csp-main-list {
+    justify-content: space-between;
+}
+.csp-header-left {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+.csp-header-left > div {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 9;
+}
+.csp-header-left img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-position: center;
+    object-fit: cover;
+}
+.csp-header-right {
+    width: max-content;
+}
+.csphr {
+    width: 25px;
+    height: 25px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+.csp-header-icon {
+    width: 25px;
+    height: 25px;
+    color: #3b4a54;
+}
+.csp-header-right > div:first-child {
+    margin-left: 0px;
+}
+.csp-search-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--greytext);
+}
+.csp-search input {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    height: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    color: var(--greytext);
+}
+.csp-main .csp-main__ {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+.csp-main__ .csp-main-lists {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.csp-main-lists .csp-main-list {
+    width: calc(100% - 6px);
+    height: 80px;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    transition: transform 300ms ease-in-out;
+    border-top: 1px solid var(--stdbackground);
+}
+.csp-main-list:hover {
+    background-color: #fafafa;
+}
+.cspm-pic {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cspm-pic.true {
+    border-radius: 50%;
+    border: 0.8px solid var(--green);
+}
+.cspm-pic img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-position: center;
+    object-fit: cover;
+}
+.csp-main-list .cspm-texts {
+    width: calc(100% - 60px);
+}
+.cspm-texts > div {
+    width: 100%;
+    height: max-content;
+}
+.cspm-texts-base {
+    margin-top: 1px;
+}
+.cspm-message .cspm-17,
+.cspm-message .cspm-14 {
+    display: inline-block;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-grow: 1;
+}
+div .cspm-17 {
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
+.cspm-message, .cspm-message-media {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-grow: 1;
+}
+.cspm_icon {
+    width: 15px;
+    height: 15px;
+    color: var(--grey);
+}
+.cspm-message-media .cspm-14 {
+    width: calc(100% - 20px);
+    margin-left: 5px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-grow: 1;
+}
+.cspmm, .cspm-14 {
+    width: max-content !important;
+    display: inline-block;
+    flex-grow: 1;
+}
+.cspm-14 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--greytext);
+}
+.cspmt-dropdown {
+    display: none;
+}
+.csp-main-list:hover .cspmt-dropdown {
+    display: block;
+}
+.cspmt-dropdown {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+.cspmt-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    color: var(--grey);
+}
+.cspmt-dropdown .cspmt-icon {
+    margin-left: 0px !important;
+}
+.cspmt-icon.green, .cspm-14.green {
+    color: var(--green);
+}
+.unread-count {
+    border-radius: 1.1em;
+    background-color: var(--green);
+    color: var(--white);
+    font-size: 12px;
+    padding: 0.3em 0.5em;
+    margin-left: 8px;
+    outline: none;
+    border: transparent;
+}
+.csp-footer {
+    width: 50px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 10;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+}
+.csp-footer-div {
+    width: 40px;
+    margin-top: 15px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--green);
+    justify-content: center;
+    box-shadow: var(--boxmessage);
+}
+.csp-footer > div:first-child {
+    margin-top: 0px;
+}
+.csp-footer-div-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--white);
+}

@@ -1,0 +1,162 @@
+.Reactions_picker_preview {
+    width: 280px;
+    height: auto;
+    position: fixed;
+    z-index: 999999;
+}
+.Reactions__Picker {
+    width: min(calc(100% - 10px), 330px);
+    height: 390px;
+    position: fixed;
+    z-index: 999999;
+}
+.DropDown__Modal, .MessageInfo__Modal {
+    position: fixed;
+    width: 240px;
+    height: auto;
+    position: fixed;
+    z-index: 999999;
+}
+.SidePanelModal {
+    position: fixed;
+    width: 240px;
+    height: auto;
+    position: fixed;
+    z-index: 999999;
+}
+.SidePanelModal .SPM.showModal,
+.MessageInfo__Modal .messageInfo__Modal.showModal,
+.DropDown__Modal .dropDown__Modal.showModal {
+    width: 100%;
+    height: auto;
+    opacity: 1;
+}
+.Reactions_picker_preview .RPP.showModal {
+    width: 100%;
+    height: 57px;
+    opacity: 1;
+}
+.Reactions__Picker .Reactions_Picker.showModal {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+.SidePanelModal .SPM.hideModal,
+.MessageInfo__Modal .messageInfo__Modal.hideModal,
+.DropDown__Modal .dropDown__Modal.hideModal {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+.Reactions_picker_preview .RPP.hideModal {
+    width: 0;
+    opacity: 0;
+}
+.Reactions__Picker .Reactions_Picker.hideModal {
+    width: 0;
+    opacity: 0;
+}
+.SidePanelModal .SPM,
+.MessageInfo__Modal .messageInfo__Modal,
+.DropDown__Modal .dropDown__Modal {
+    transition: width 0.3s, height 0.3s, opacity 0.3s;
+    border-radius: 3px;
+    background-color: var(--white);
+    box-shadow: var(--endomodal);
+}
+.Reactions__Picker .Reactions_Picker {
+    transition: width 0.3s, opacity 0.3s;
+    border-radius: 30px;
+    background-color: var(--white);
+    box-shadow: var(--endomodal);
+}
+.Reactions_picker_preview > div {
+    transition: width 0.3s, opacity 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: var(--white);
+    box-shadow: var(--endomodal);
+}
+.rpp_div {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rrp_icon {
+    width: 32px;
+    height: 32px;
+    color: var(--grey);
+}
+.rpp_div:hover {
+    background-color: #fdfcfc;
+}
+.dropDown__Modal > div {
+    width: 100%;
+    height: auto;
+    padding: 10px 0px;
+}
+.dropDown__Modal_lists > div {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.dropDown__Modal_lists > div:hover {
+    background-color: var(--stdbackground);
+}
+.dropDown__Modal_lists span {
+    color: var(--greytext);
+    font-size: 16px;
+}
+.SPM .SPM_ {
+    width: 100%;
+    padding: 5px 0px;
+}
+.SPM_ > div {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    color: var(--greytext);
+}
+.SPM_ > div:hover {
+    background-color: var(--stdbackground);
+}
+.messageInfo__Modal > div {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.mInfo_top {
+    display: flex;
+    align-items: center;
+}
+.mInfo_icon {
+    width: 15px;
+    height: 15px;
+    color: var(--grey);
+}
+.mInfo_icon.blue {
+    color: var(--lightblue);
+}
+.mInfo_txt-17 {
+    font-size: 15px;
+    line-height: 18px;
+    margin-left: 6px;
+}
+.mInfo_txt-14 {
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 1px;
+    color: var(--grey);
+}

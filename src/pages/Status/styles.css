@@ -1,0 +1,43 @@
+.STATUS {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.STATUS .STATUS_SIDE {
+    width: 30%;
+    height: 100%;
+}
+.STATUS .STATUS_VIEW {
+    width: 70%;
+    height: 100%;
+}
+div .statusMain {
+    width: 100%;
+    height: 100%;
+}
+.statusMain > div {
+    width: 100%;
+    height: 100%;
+}
+@media screen and (max-width: 800px) {
+    .STATUS .STATUS_SIDE {
+        width: 40%;
+    }
+    .STATUS .STATUS_VIEW {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .STATUS .STATUS_VIEW {
+        display: none;
+        width: 0;
+    }
+    .STATUS.true .STATUS_VIEW, .STATUS .STATUS_SIDE {
+        width: 100%;
+        display: block;
+    }
+    .STATUS.true .STATUS_SIDE {
+        display: none;
+        width: 0px;
+    }
+}

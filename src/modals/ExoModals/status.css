@@ -1,0 +1,255 @@
+.StatusWrite, .StatusUpload {
+    width: 450px;
+    box-shadow: var(--boxexomodal);
+    height: calc(100% - 40px);
+    background-color: var(--white);
+}
+.StatusWrite .statusWrite,
+.StatusUpload .statusUpload {
+    width: 100%;
+    height: 100%;
+}
+.statusUpload header,
+.statusWrite header {
+    width: 100%;
+    padding: 10px;
+    justify-content: space-between;
+    background-color: var(--darkgreen);
+}
+.statusWrite main, .statusUpload main {
+    width: 100%;
+    height: calc(100% - 93px);
+}
+.statusWrite footer, .statusUpload footer {
+    width: 100%;
+}
+.statusWrite header, .sW_header_parts,
+.sW_header_div, .statusUpload header {
+    display: flex;
+    align-items: center;
+}
+.sW_header_parts {
+    width: max-content;
+}
+.sW_header_parts > div {
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    cursor: pointer;
+}
+.statusUpload .sW_header_div,
+.sW_header_parts > div:first-child {
+    margin-left: 0px;
+}
+.sW_header_icon {
+    width: 18px;
+    height: 18px;
+    color: var(--white);
+}
+.sU_header_txt {
+    font-size: 16px;
+    color: var(--white);
+    line-height: 20px;
+}
+main .sU__main,
+main .sW__Input__Box,
+.sW__Input__Box > div {
+    width: 100%;
+    height: 100%;
+}
+.su__main, .su__main__close, .su__main label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sU__main .su__main {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.su__main.hide {
+    display: none !important;
+}
+.su__main label {
+    width: 100px;
+    height: 100px;
+    border: 1px dotted var(--green);
+    border-radius: 7.5px;
+    cursor: pointer;
+}
+.su__main.nocontent input {
+    display: none;
+}
+label .sumn_icon {
+    width: 90%;
+    height: 90%;
+    color: var(--green);
+}
+.su__main__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    z-index: 10;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgba(27,27,27,0.3);
+}
+.sumc_icon {
+    width: 20px;
+    height: 20px;
+    color: var(--white);
+}
+.su__main img {
+    height: 100%;
+    width: 100%;
+    image-rendering: auto !important;
+}
+.sU__Caption__Box {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: var(--stdbackground);
+}
+.sU__Caption__Box .sU__Emoji {
+    width: 100%;
+    height: 240px;
+}
+.sU__Caption__Box .sU__Caption__Input {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+}
+.sU_caption_emoji {
+    width: 21px;
+    height: 40px;
+    color: var(--grey);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sU_caption_emoji_icon {
+    width: 21px;
+    height: 30px;
+    color: var(--grey);
+}
+.sU__Caption__Box .sU__Input {
+    width: calc(100% - 31px);
+    margin: 0;
+    margin-left: 10px;
+    max-height: 100px;
+    min-height: 40px;
+    position: relative;
+    background-color: var(--white);
+    border-radius: 5px;
+}
+.sW__Input__Box .sW__Input {
+    width: 100%;
+    margin: 0;
+    margin-left: 0px;
+    height: 100%;
+}
+.sW__Input {
+    position: relative;
+    background-color: var(--white);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sw-input-placeholder {
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    color: var(--grey);
+}
+.su-input-placeholder {
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-57%);
+    z-index: 10;
+    color: var(--greytext);
+}
+.sW__Input .sw-input-editor {
+    max-width: 100%;
+    max-height: 100%;
+    /* white-space: pre-wrap; */
+    overflow-y: auto;
+    margin: 0;
+    padding: 10px;
+    caret-color: #3b4a54;
+}
+.sU__Input .su-input-editor {
+    width: 100%;
+    max-height: 100px;
+    min-height: 40px;
+    overflow-y: auto;
+    margin: 0;
+    padding: 9px 8px;
+    caret-color: #3b4a54;
+}
+.su-input-editor:focus,
+.su-input-p:focus,
+.sw-input-editor:focus,
+.sw-input-p:focus {
+    border: 0px solid transparent;
+    outline: 0px solid transparent;
+}
+.su-input-editor .su-input-p,
+.sw-input-editor .sw-input-p {
+    width: 100%;
+    white-space: pre-wrap;
+    user-select: text;
+    word-break: break-word;
+    text-indent: 0px;
+    margin: 0;
+    font-size: 15px;
+}
+.text-emoji {
+    color: transparent;
+    caret-color: #3b4a54;
+}
+.text-emoji {
+    width: 24px;
+    height: 24px;
+    display: inline-grid;
+    place-items: end;
+}
+footer .sW_footer {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: var(--stdbackground);
+}
+.sW_send {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    background-color: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--endomodal);
+}
+.sW_send.empty {
+    background-color: rgb(88, 139, 88);
+}
+.sW_send_icon {
+    width: 20px;
+    height: 20px;
+    color:var(--white);
+}

@@ -1,0 +1,132 @@
+.SearchModal {
+    width: 450px;
+    box-shadow: var(--boxexomodal);
+    height: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+}
+.SearchModal main {
+    width: 100%;
+    height: calc(100% - 70px);
+}
+.SearchModal header,
+.SearchModal header > div {
+    width: 100%;
+}
+.sM_header_top, .sm_close,
+.smhs, .smhs_search, .search_list {
+    display: flex;
+    align-items: center;
+}
+.sM_header_top {
+    background-color: var(--darkgreen);
+    padding: 10px;
+    justify-content: space-between;
+}
+.sm_text {
+    font-size: 18px;
+    line-height: 20px;
+    color: var(--white);
+}
+.sm_close {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    justify-content: center;
+}
+.smhs_icon {
+    width: 18px;
+    height: 18px;
+    color: var(--white);
+}
+.sM_header_search {
+    padding: 10px;
+}
+.sM_header_search > div {
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: 5px;
+    background-color: var(--stdbackground);
+}
+.smhs, .search_list {
+    justify-content: space-between;
+}
+.smhs input {
+    width:calc(100% - 40px);
+    height: 30px;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--greytext);
+    font-size: 15px;
+}
+.smhs_search {
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    background-color: var(--green);
+    cursor: pointer;
+}
+main .searched {
+    width: 100%;
+    height: 130px;
+    padding: 10px 10px;
+}
+main .recommended {
+    width: 100%;
+    height: calc(100% - 130px);
+    overflow: hidden;
+    padding: 10px;
+}
+.st_title {
+    font-size: 13px;
+    color: var(--grey);
+    line-height: 15px;
+}
+.searched > div, .recommended > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div .search_lists {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+.search_lists > div {
+    width: 100%;
+    padding: 10px 0px;
+    cursor: pointer;
+    border-top: 0.5px solid #e2e8f0;
+}
+.search_lists > div:hover {
+    background-color: #fcfbfb;
+}
+.search_list img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+.search_list .search_text {
+    width: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+}
+.search_text > span {
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 450px) {
+    .SearchModal {
+        width: 100%;
+        box-shadow: none;
+        height: 100%;
+    }
+}

@@ -1,0 +1,39 @@
+.circular__Progressbar {
+    width: 45px;
+    height: 45px;
+}
+[data-test-id='CircularProgressbarWithChildren__children'] {
+    top: 0%;
+    margin-top: unset !important;
+    width: 45px !important;
+    height: 45px !important;
+}
+.circularText {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.circularText > div {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.circularText span {
+    color: white;
+    font-size: 12px;
+    overflow: hidden;
+}
+.inner-image {
+    width: 35px;
+    height: 35px;
+}
+.inner-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+}
+.inner-image .Optimized-image .Hashed-image > div canvas {
+    border-radius: 50%;
+}

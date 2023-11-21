@@ -1,0 +1,20 @@
+.txt-inner {
+    font: inherit;
+}
+.emoji-span {
+    image-rendering: -webkit-optimize-contrast;
+    zoom: 1;
+    vertical-align: middle;
+    display: inline-block;
+    color: transparent !important;
+    font: inherit;
+}
+.em-text a {
+    text-decoration: none;
+    font: inherit;
+}
+.aLink {
+    color: var(--lightblue) !important;
+    cursor: pointer;
+    text-decoration: none;
+}
