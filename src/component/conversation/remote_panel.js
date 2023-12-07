@@ -25,7 +25,9 @@ const ConversationByOthers = ({
                         <DropDownIcon className={'m_o_d__icon'} />
                     </div>
                     <div className='m_o_e' onClick={(e) => {
-                        openModal(e.target, 'reactions_picker_preview', 280, 57, false, message);
+                        openModal(messageRef.current, 
+                            'reactions_picker_preview', 280, 57, false, message
+                        );
                     }}>
                         <EmojiFillIcon className={'m_o_e__icon'} />
                     </div>

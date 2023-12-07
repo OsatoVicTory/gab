@@ -63,7 +63,7 @@ export const formatTextForEmojisAndMatchSearch = (string, clx, font, search) => 
             if(isLink) {
                 if(str) res += `<span class='${clx}'>${str}</span>`;
                 str = '';
-                res += `<a class='aLink ${clx}' target='_blank' href=${words[i]}>`;
+                res += `<a class='aLink ${clx}' target='_blank' href='${words[i]}'>`;
             }
             const { ele, strr, stri } = loopText(words[i], str, clx, search, font);
             res += ele;

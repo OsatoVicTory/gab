@@ -8,4 +8,4 @@ export {
     setEditGroupData, 
 } from './sessions';
 export { setStatusMessageData } from './statusMessage';
-export { setFixedImagesData, setFixedStatusData } from './fixedPages';
+export { setFixedImagesData, setFixedStatusData, setFixedCallsData } from './fixedPages';

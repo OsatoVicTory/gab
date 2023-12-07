@@ -18,6 +18,7 @@ export default class ChatsUtils {
                 res[i] = d[i];
                 res[i].pos = pinned++;
             }
+            res[i].unReads = d[i].unreadMessages;
         }
         return { 
             data: [...res], 
@@ -361,6 +362,16 @@ export default class ChatsUtils {
             if(data[i].account._id === accountId) {
                 data[i].hasStatus = res;
                 break;
+            }
+        }
+        return { ...state, data };
+    }
+
+    updateStatus(state, [ mp ]) {
+        const { data } = state;
+        for(let i = 0; i < data.length; i++) {
+            if(mp.includes(data[i].account._id)) {
+                data[i].hasStatus = false;
             }
         }
         return { ...state, data };

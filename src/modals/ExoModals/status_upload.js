@@ -80,7 +80,8 @@ const StatusUpload = ({ socket, closeModal }) => {
         if(message) formData.append('caption', message);
         formData.append('file', image);
         uploadStatus(formData).then(res => {
-            setStatus('iPost', res.data.status);
+            const { ends, status } = res.data;
+            setStatus('iPost', status);
             const account = { 
                 img: user.img, userName: user.userName, 
                 _id: user._id, about: user.about 
@@ -88,8 +89,7 @@ const StatusUpload = ({ socket, closeModal }) => {
             // const ends = user.contacts.filter(contact => (
             //     contact.userId !== user._id && !contact.barred
             // )).map(c => c.userId);
-            const { ends } = res.data;
-            socket.emit('sendStatus', { account, status: res.data.status, ends });
+            socket.emit('sendStatus', { account, status, ends });
             setLoading(false);
             responseMessage('success', setStatusMessage, res);
             closeModal();

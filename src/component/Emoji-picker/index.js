@@ -35,8 +35,12 @@ const EmojiPicker = ({ emojiClick, offsetWidth }) => {
         );
     };
 
+    useEffect(() => { 
+        if(offsetWidth) mountFnc(offsetWidth, setEmojiLists, setEmojiListsShowing, setState);
+    }, [offsetWidth]);
+
     useEffect(() => {
-        if(offsetWidth) mountFnc(offsetWidth, setEmojiLists, setEmojiListsShowing, setState); 
+        // if(offsetWidth) mountFnc(offsetWidth, setEmojiLists, setEmojiListsShowing, setState); 
         if(eleRef.current) eleRef.current.addEventListener('scroll', scrollFnc);
         return () => eleRef.current?.removeEventListener('scroll', scrollFnc);
     }, []);
@@ -48,16 +52,12 @@ const EmojiPicker = ({ emojiClick, offsetWidth }) => {
         }
     }, [state]);
 
-    useEffect(() => { 
-        if(offsetWidth) mountFnc(offsetWidth, setEmojiLists, setEmojiListsShowing, setState);
-    }, [offsetWidth]);
-
     function handleChange(e) {
         const { value } = e.target;
         if(value) {
             if(state !== 'search') setState('search');
             if(current !== 0) setCurrent(0);
-            searchFnc(value, offsetWidth, setEmojiListsShowing);
+            searchFnc(value.toLowerCase(), offsetWidth, setEmojiListsShowing);
         } else {
             setEmojiListsShowing(emojiLists);
             setState('view_full_lists');

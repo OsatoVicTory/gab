@@ -70,7 +70,7 @@ const Gab = () => {
                     responseMessage('error', setStatusMessage, err);
                     setError(true);
                     setLoading(false);
-                    if(err.data.status === 'failed') navigate("/login");
+                    if(err?.data?.status === 'failed') navigate("/login");
                 }
             } 
             loggedIn();

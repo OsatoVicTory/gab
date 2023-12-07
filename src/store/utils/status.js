@@ -8,6 +8,7 @@ export default class StatusUtils {
             data: [...res], 
             newStatus: Data.newStatus, 
             loaded: true,
+            tracker: String(Date.now()),
         };
     }
     refresh(state, [ acct ]) {
@@ -156,6 +157,6 @@ export default class StatusUtils {
         for(let i = 0; i < data.length; i++) {
             if(data[i].completed) data[i].pos = idx++;
         }
-        return { ...state, data, newStatus: false };
+        return { ...state, data, newStatus: false, tracker: String(Date.now()) };
     }
 }

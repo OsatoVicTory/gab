@@ -4,6 +4,8 @@ export const fixedPagesReducer = (state = { type: null }, action) => {
             return action.payload ? { ...action.payload } : { type: null };
         case "SET_FIXED_STATUS_DATA":
             return action.payload ? { ...action.payload } : { type: null };
+        case "SET_FIXED_CALLS_DATA":
+            return action.payload ? { ...action.payload } : { type: null };
         default:
             return state
     }
@@ -22,6 +24,15 @@ export const setFixedStatusData = (data) => {
     return (dispatch) => {
         dispatch({
             type: "SET_FIXED_STATUS_DATA",
+            payload: data
+        })
+    }
+};
+
+export const setFixedCallsData = (data) => {
+    return (dispatch) => {
+        dispatch({
+            type: "SET_FIXED_CALLS_DATA",
             payload: data
         })
     }

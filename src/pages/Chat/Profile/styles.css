@@ -53,12 +53,15 @@ div .Profile__Page {
     margin-left: 10px;
 }
 .Profile {
-    height: 300px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px;
     background-color: var(--white);
+}
+.Profile {
+    height: 280px;
 }
 .Profile_Images img {
     width: 100px;
@@ -69,8 +72,8 @@ div .Profile__Page {
     position: relative;
 }
 .Profile_Images label {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: var(--green);
     cursor: pointer;
@@ -91,9 +94,11 @@ div .Profile__Page {
     display: none;
 }
 .Profile span {
-    display: block;
     text-align: center;
-    margin-top: 8px;
+}
+.Profile .profile_txt_big, .Profile .profile_txt_small {
+    display: block;
+    margin-top: 5px;
 }
 .profile_icons {
     width: 150px;
@@ -111,8 +116,8 @@ div .Profile__Page {
     text-align: center;
 }
 .ppid_icon {
-    width: 50px;
-    height: 40px;
+    width: 40px;
+    height: 30px;
     color: var(--green);
 }
 .profile_page_icon_div.video {
@@ -258,15 +263,18 @@ div .profile_about {
 }
 div .profile__Edittable__Send {
     width: 100%;
-    margin-top: 12px;
+    margin-top: 3px;
+    padding-bottom: 10px;
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
 }
 .pes__Send {
-    width: max-content;
-    padding: 10px 24px;
+    width: max-content !important;
+    padding: 8px 20px;
+    margin-top: 0px !important;
     cursor: pointer;
-    background-color: vra(--green);
+    background-color: var(--green);
     color: var(--white);
     border-radius: 5px;
     font-size: 15px;

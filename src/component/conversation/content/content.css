@@ -8,8 +8,7 @@ div .MessageContent {
     background-color: var(--white);
     box-shadow: var(--boxmessage);
     border-radius: var(--circleborder);
-    padding: 8px;
-    padding-top: 5px;
+    padding: 5px;
     position: relative;
     display: flex;
     flex-direction: column;

@@ -1,6 +1,6 @@
 footer .Chat__Footer {
     width: 100%;
-    height: clamp(70px, 70px, 500px);
+    height: max-content;
     min-height: 70px;
     max-height: 500px;
     background-color: var(--stdbackground);

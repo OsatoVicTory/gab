@@ -62,11 +62,12 @@ export const searchWordUtil = (
 
 // scroll 
 export const scrollUtil = (
-    e, curRef, nxtRef, elements, setFixedTime,
+    e, curRef, nxtRef, eles, setFixedTime,
     setShowScrollDown, messages, unreadsRef,
-    unreadsState, setUnreadState, unReads,
+    unreadsState, setUnreadState, unReads
     // taggedRef, taggedState, setTaggedState
 ) => {
+    const elements = eles.current;
     const { scrollHeight, clientHeight, scrollTop } = e.target;
     const nxt = elements[nxtRef.current]?.getBoundingClientRect().top;
     const cur = elements[curRef.current]?.getBoundingClientRect().top;
@@ -89,13 +90,19 @@ export const scrollUtil = (
     // if(taggedRef && taggedState && taggedRef?.getBoundingClientRect().top <= clientHeight) {
     //     setTaggedState(false);
     // }
-    if(unreadsRef && unreadsRef?.getBoundingClientRect().top <= clientHeight && unreadsState) {
-        setUnreadState(unReads);
+
+    if( unreadsRef.current && unReads.current > unreadsState.current && 
+        ((unreadsRef.current?.getBoundingClientRect().top||0) - 60 <= clientHeight) ) {
+        setUnreadState(unReads.current);
+        unreadsState.current = unReads.current;
     } 
     
     if(Math.abs(scrollHeight - clientHeight - scrollTop) < 1) {
         setShowScrollDown(false);
-        if(unreadsState) setUnreadState(unReads);
+        if(unReads.current > unreadsState.current) {
+            setUnreadState(unReads.current);
+            unreadsState.current = unReads.current;
+        }
     } else {
         setShowScrollDown(true);
     }

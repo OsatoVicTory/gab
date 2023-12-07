@@ -10,6 +10,7 @@ import {
     BsCheck2All, BsCheck2, BsFillTelephoneFill 
 } from 'react-icons/bs';
 import { BiLinkAlt, BiSolidMicrophone } from 'react-icons/bi';
+import { IoMdMic, IoMdMicOff } from 'react-icons/io';
 
 export const Ellipsis = ({ className }) => <HiMiniEllipsisVertical className={className} />;
 export const Status = ({ className, newUpdates }) => {
@@ -39,7 +40,8 @@ export const CloseIcon = ({ className }) => <AiOutlineClose className={className
 export const ArrowLeftIcon = ({ className }) => <AiOutlineArrowLeft className={className} />;
 export const ImageIcon = ({ className }) => <BsCameraFill className={className} />;
 export const LinkIcon = ({ className }) => <BiLinkAlt className={className} />;
-export const AudioIcon = ({ className }) => <BiSolidMicrophone className={className} />;
+export const AudioIcon = ({ className }) => <IoMdMic className={className} />;
+export const AudioOffIcon = ({ className }) => <IoMdMicOff className={className} />;
 export const VideoIcon = ({ className }) => <MdVideocam className={className} />;
 export const PhoneIcon = ({ className }) => <BsFillTelephoneFill className={className} />;
 export const MessageIcon = ({ className }) => <MdOutlineMessage className={className} />;

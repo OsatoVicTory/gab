@@ -84,7 +84,7 @@ const EditableUserProfile = ({ socket }) => {
         if(updateLoading) return alert('Currently updating...');
         setUpdateLoading(true);
         setClearDiv(false);
-        const about = pRef2.current?.innerText || '';
+        const about = pRef2.current?.innerText || user.about || '';
         const formData = new FormData();
         formData.append('userName', pRef.current?.innerText || user.userName || '');
         formData.append('about', about);
@@ -99,10 +99,8 @@ const EditableUserProfile = ({ socket }) => {
                 socket.emit('updateAccount', { ...res.data.user });
                 const img = userImg;
                 setUser({ ...res.data.user });
-                if(typeof img === 'object') {
-                    setUserImg(res.data.user.img);
-                    URL.revokeObjectURL(img);
-                }
+                setUserImg(res.data.user.img);
+                if(img?.size) URL.revokeObjectURL(img);
                 responseMessage('success', setStatusMessage, res);
                 setUpdateLoading(false);
                 setClearDiv(true);
@@ -127,7 +125,7 @@ const EditableUserProfile = ({ socket }) => {
             return setStatusMessage({type:'error', text:'File cannot be more than 2MB'});
         }
         setUserImg(File);
-        if(typeof img === 'object') URL.revokeObjectURL(img);
+        if(img?.size) URL.revokeObjectURL(img);
     };
 
     return (
@@ -138,7 +136,7 @@ const EditableUserProfile = ({ socket }) => {
                         <div>
                             <ArrowLeftIcon className={'profile_top_icon'} />
                         </div>
-                        <span className='profile_txt_xl'>{user.userName || 'You'}</span>
+                        <span className='profile_txt_big'>{user.userName || 'You'}</span>
                         <div onClick={() => setEdit(!edit)}>
                             <BiEditAlt className={'profile_top_icon'} />
                         </div>
@@ -146,18 +144,20 @@ const EditableUserProfile = ({ socket }) => {
                     <div className='Profile edittable'>
                         <div className='Profile_Images'>
 
-                            <img src={typeof userImg === 'object' ?
+                            <img src={userImg?.size ?
                             URL.createObjectURL(userImg) : (userImg||defaultImg)} 
                             alt='profile' />
 
-                            <label htmlFor='img-input'>
+                            {edit && <label htmlFor='img-input'>
                                 <BiEditAlt className={'profile_top_icon_'} />
-                            </label>
+                            </label>}
                             <input type='file' id='img-input'
                             accept='image/*' onChange={pickedMediaFile} />
                         </div>
-                        <span className='profile_txt_xl'>{user.userName || 'You'}</span>
-                        <span className='profile-txt_big'>{user.phoneNumber}</span>
+                        {/* <span className='profile_txt_xl'>{user.userName || 'You'}</span> */}
+                        <TextWithEmoji text={user.userName || 'You'} CLX={'profile_txt_xl'} 
+                        font={16} search={null} clx={'profile_txt_big_inner'} />
+                        <span className='profile_txt_big'>{user.phoneNumber}</span>
                         <span className='profile_txt_small'>online</span>
                     </div>
                     <div className='profile_box' id='profile-box'>
@@ -199,7 +199,7 @@ const EditableUserProfile = ({ socket }) => {
                             <div className='profile_edittable_input'>
                                 <div className='_pei_emoji' 
                                 onClick={() => toggleEmoji('about')}>
-                                    <EmojiIcon className={'_pei_emoji_icon'}/>
+                                    <EmojiIcon className={'_pei_emoji_icon'}/>  
                                 </div>
                                 <div className='_pei_input'>
                                     <div contentEditable='true' ref={divRef2} role='textbox'
@@ -212,10 +212,10 @@ const EditableUserProfile = ({ socket }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className='profile__Edittable__Send'>
-                            <div className='pes__Send' onClick={handleUpdate}>
-                                {updateLoading ? 'Updating...' : 'Update'}
-                            </div>
+                    </div>
+                    <div className={`profile_box edittable ${edit} profile__Edittable__Send`}>
+                        <div className='pes__Send' onClick={handleUpdate}>
+                            {updateLoading ? 'Updating...' : 'Update'}
                         </div>
                     </div>
                 </div>

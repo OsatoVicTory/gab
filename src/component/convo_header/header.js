@@ -1,7 +1,8 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import './header.css';
 // import TextWithEmoji from "../TextWithEmoji";
-import { ArrowLeftIcon, Search, Ellipsis, CloseIcon, VideoIcon, PhoneIcon } from '../Icons';
+import { ArrowLeftIcon, Search, Ellipsis, CloseIcon } from '../Icons';
+// import { VideoIcon, PhoneIcon } from '../Icons';
 import { 
     MdOutlineDelete, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp 
 } from 'react-icons/md';
@@ -12,7 +13,7 @@ import { contactName } from '../../utils/Chat';
 import { useSelector, useDispatch } from 'react-redux';
 import { formatDateTimeFromDate } from '../../utils/formatters';
 import { bindActionCreators } from 'redux';
-import { setChatsData, setStatusMessageData } from '../../store/actions';
+import { setChatsData, setStatusMessageData, setFixedCallsData } from '../../store/actions';
 import { responseMessage } from '../../utils/others';
 import { deleteDirectMessageForMe } from '../../services/dm';
 
@@ -27,10 +28,11 @@ const Header = ({
     const [showDropdown, setShowDropdown] = useState(false);
     const inputRef = useRef();
     const dropDownRef = useRef();
-    const { contacts } = useSelector(state => state.user);
+    const { contacts, _id } = useSelector(state => state.user);
     const dispatch = useDispatch();
     const setChats = bindActionCreators(setChatsData, dispatch);
     const setStatusMessage = bindActionCreators(setStatusMessageData, dispatch);
+    const setFixedCalls = bindActionCreators(setFixedCallsData, dispatch);
     
     const handleGo = (type) => {
         setSearchLoading(type);
@@ -65,6 +67,13 @@ const Header = ({
         });
     };
 
+    const startCall = (type) => {
+        setFixedCalls({
+            type, callerId: _id, receiverId: account._id, image: account.img,
+            receiverName: contactName(account._id, contacts) || account.userName,
+        });
+    };
+
     const MainComponent = () => {
         return (
             <div className='chat_header'>
@@ -84,12 +93,14 @@ const Header = ({
                         `Last seen ${formatDateTimeFromDate(account.lastSeen)}`}
                     </span>
                 </div>
-                <div className='header_icon_div header_right_icon'>
+                {/* <div className='header_icon_div header_right_icon'
+                onClick={() => startCall('video')}>
                     <VideoIcon className={'header_icon'} />
                 </div>
-                <div className='header_icon_div header_right_icon h_phone_icon'>
+                <div className='header_icon_div header_right_icon h_phone_icon'
+                onClick={() => startCall('audio')}>
                     <PhoneIcon className={'header_icon'} />
-                </div>
+                </div> */}
                 <div className='header_icon_div header_right_icon ellipsis' 
                 onClick={() => setShowDropdown(!showDropdown)}>
                     <Ellipsis className={'header_icon'} />

@@ -55,7 +55,8 @@ const StatusWrite = ({ closeModal, socket }) => {
         setLoading(true);
         const data = { text, font: fontFamily[font] };
         createStatus(data).then(res => {
-            setStatus('iPost', res.data.status);
+            const { ends, status } = res.data;
+            setStatus('iPost', status);
             const account = { 
                 img: user.img, userName: user.userName, 
                 _id: user._id, about: user.about 
@@ -63,8 +64,7 @@ const StatusWrite = ({ closeModal, socket }) => {
             // const ends = user.contacts.filter(contact => (
             //     contact._id !== user._id && !contact.barred && contact.userId !== user._id
             // )).map(c => c.userId);
-            const { ends } = res.data;
-            socket.emit('sendStatus', { account, status: res.data.status, ends });
+            socket.emit('sendStatus', { account, status, ends });
             setLoading(false);
             responseMessage('success', setStatusMessage, res);
             closeModal();

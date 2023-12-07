@@ -18,6 +18,7 @@ import { getModalPositions } from '../../../utils/modal';
 import { scrollToMessage, scrollUtil, searchWordUtil } from '../../../utils/Chat';
 import { DropDownIcon } from '../../../component/Icons';
 import MessageInfoModal from '../../../modals/EndoModals/message_info';
+import NoData from '../../../component/NoData';
 // import audio from '../../../images/audio.mp3';
 
 const ChatPanel = ({ socket }) => {
@@ -49,6 +50,8 @@ const ChatPanel = ({ socket }) => {
     const curRef = useRef();
     const nxtRef = useRef();
     const unReadsRef = useRef();
+    const unReadsCnt = useRef(0);
+    const unReadsStateRef = useRef(0);
 
     const handleCheck = (_id) => {
         if(!checked.includes(_id)) setChecked([...checked, _id]);
@@ -77,9 +80,9 @@ const ChatPanel = ({ socket }) => {
     function scrolled(e) {
         if(modal?.type) setModal(null);
         scrollUtil(
-            e, curRef, nxtRef, elementsRef.current, setFixedTime, 
-            setShowScrollDown, messages, unReadsRef.current, 
-            unReads > unreadsState, setUnreadsState, unReads,
+            e, curRef, nxtRef, elementsRef, setFixedTime, 
+            setShowScrollDown, messages, unReadsRef, 
+            unReadsStateRef, setUnreadsState, unReadsCnt
             // taggedRef.current, taggedState, setTaggedState
         );
     };
@@ -113,8 +116,17 @@ const ChatPanel = ({ socket }) => {
     }, [id]);
     
     useEffect(() => {
+        console.log('unReads', unReads, 'unreadsState', unreadsState);
+        unReadsCnt.current = unReads;
         if(unReads > unreadsState) {
-            const message_id = messages[messages.length - unReads - unreadsState]?._id;
+            const diff = unReads - unreadsState;
+            let i = messages.length - 1, message_id = '', cnt = 0;
+            while(i >= 0) {
+                if(!messages[i]?._id || messages[i].senderId === user._id) break;
+                cnt++;
+                if(cnt === diff) { message_id = messages[i]._id; break; }
+                i--;
+            }
             const ele = document.getElementById(`Gab-${message_id}`);
             if(ele) unReadsRef.current = ele;
         }
@@ -170,7 +182,9 @@ const ChatPanel = ({ socket }) => {
             <span>{modal?.type === 'message_info' && <MessageInfoModal
             pos={modal.pos} closeModal={closeModal} data={modal.data} />}</span>
 
-            <div className='ChatPanel__Content'>
+            {!acct?.account && <NoData />}
+
+            {acct?.account && <div className='ChatPanel__Content'>
                 
                 <header><Header searchWord={searchWord}
                 checkBox={checkBox} setCheckBox={setCheckBox} setChecked={setChecked}
@@ -221,7 +235,7 @@ const ChatPanel = ({ socket }) => {
                     <Footer account={acct?.account||{}} isBlocked={acct.isBlocked}
                     socket={socket} tagged={tagged} setTagged={setTagged} />
                 </footer>
-            </div>
+            </div>}
         </div>
     )
 };

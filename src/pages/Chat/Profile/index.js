@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import './styles.css';
 import { BiBlock } from 'react-icons/bi';
 import defaultImage from '../../../images/avatar.png';
-import { ArrowLeftIcon, MessageIcon, CloseIcon, VideoIcon } from '../../../component/Icons';
+import { ArrowLeftIcon, MessageIcon, CloseIcon } from '../../../component/Icons';
 import { MdKeyboardArrowRight } from 'react-icons/md';
-import { AiFillPhone } from 'react-icons/ai';
+// import { VideoIcon } from '../../../component/Icons';
+// import { AiFillPhone } from 'react-icons/ai';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { 
-    setFixedImagesData, setModalData, 
+    setFixedImagesData, setModalData, setFixedCallsData,
     setChatsData, setModalMessageData, setStatusMessageData 
 } from '../../../store/actions';
 import OptimizedImage from '../../../component/OptimizedImage';
@@ -21,6 +22,7 @@ import { getImages } from '../../../utils/helpers';
 import useScrollDetector from '../../../hooks/useScrollDetector';
 import LoadingSpinner from '../../../component/loading/loading';
 import TextWithEmoji from '../../../component/TextWithEmoji';
+import NoData from '../../../component/NoData';
 
 const ProfilePage = () => {
 
@@ -34,14 +36,15 @@ const ProfilePage = () => {
     const { id } = useParams();
     const loc = useLocation();
     const { data } = useSelector(state => state.chats);
-    const acct = data.find(({ account }) => account._id === id)?.account||loc.state;
-    const { contacts } = useSelector(state => state.user);
+    const acct = data.find(({ account }) => account._id === id)?.account||loc?.state;
+    const { contacts, _id } = useSelector(state => state.user);
     const setChats = bindActionCreators(setChatsData, dispatch);
     const setFixedImages = bindActionCreators(setFixedImagesData, dispatch);
     const setModalMessage = bindActionCreators(setModalMessageData, dispatch);
     const setModal = bindActionCreators(setModalData, dispatch);
     const setStatusMessage = bindActionCreators(setStatusMessageData, dispatch);
-    const contact_name = contacts.find(ct => ct.userId === acct._id) || acct.userName;
+    const setFixedCalls = bindActionCreators(setFixedCallsData, dispatch);
+    const contact_name = contacts.find(ct => ct.userId === acct._id)?.userName || acct.userName;
 
     useScrollDetector(70, (res) => setFixed(res));
     // run this function to get all images
@@ -92,15 +95,23 @@ const ProfilePage = () => {
         })
     };
 
+    const startCall = (type) => {
+        setFixedCalls({
+            type, callerId: _id, receiverId: id,
+            receiverName: contact_name, image: acct.img
+        });
+    };
+
     return (
         <div className='Profile__Page'>
-        <div className='profile__Page__Wrapper hide_scroll_bar' id='profile'>
+        {!acct?._id && <NoData />}
+        {acct?._id && <div className='profile__Page__Wrapper hide_scroll_bar' id='profile'>
             <div className='profile__Page__Content'>
                 <div className={`profile_top ${fixed}`}>
                     <div onClick={() => navigate(-1)}>
                         <ArrowLeftIcon className={'profile_top_icon'} />
                     </div>
-                    <span className='profile_txt_xl'>{contact_name}</span>
+                    <span className='profile_txt_big'>{contact_name}</span>
                     <div onClick={() => {
                         if(!loading) navigate(`/app/chat`);
                     }}>
@@ -108,7 +119,7 @@ const ProfilePage = () => {
                         {loading && <LoadingSpinner width={'15px'} height={'15px'} />}
                     </div>
                 </div>
-                <div className='Profile'>
+                <div className='Profile remote'>
                     <div className='Profile_Images'>
                         <img src={acct.img||defaultImage} alt='profile' />
                     </div>
@@ -117,7 +128,7 @@ const ProfilePage = () => {
                     CLX={'profile_txt_xl p_txt_userName'} font={15}  
                     search={null} clx={'profile_txt_big_inner'} />
 
-                    <span className='profile-txt_big'>{acct.phoneNumber}</span>
+                    <span className='profile_txt_big'>{acct.phoneNumber}</span>
                     <span className='profile_txt_small'>
                         {acct.lastSeen === 'online' ? 'online' :
                         `Last seen ${formatDateTimeFromDate(acct.lastSeen)}`}
@@ -131,14 +142,16 @@ const ProfilePage = () => {
                             <MessageIcon className='ppid_icon' />
                             <span className='profile_txt_big'>Message</span>
                         </div>
-                        <div className='profile_page_icon_div'>
+                        {/* <div className='profile_page_icon_div'
+                        onClick={() => startCall('audio')}>
                             <AiFillPhone className='ppid_icon p_phone' />
                             <span className='profile_txt_big'>Voice</span>
                         </div>
-                        <div className='profile_page_icon_div video'>
+                        <div className='profile_page_icon_div video'
+                        onClick={() => startCall('video')}>
                             <VideoIcon className={'ppid_icon'} />
                             <span className='profile_txt_big'>Video</span>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className='profile__Images'>
@@ -197,7 +210,7 @@ const ProfilePage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>}
 
         {showImages && <ProfileImages data={images} 
         closePage={() => setShowImages(false)} />}

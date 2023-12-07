@@ -24,7 +24,6 @@ const ChatSidePanel = () => {
     const id = window.location.pathname.split('/')[4];
     const user = useSelector(state => state.user);
     const Chats = (useSelector(state => state.chats));
-    const { newStatus } = useSelector(state => state.status);
     const chats = Chats.data;
     const total = Chats.totalUnreadMessages;
     const dispatch = useDispatch();
@@ -34,7 +33,7 @@ const ChatSidePanel = () => {
     const [modal, setModal] = useState(null);
     const setter = bindActionCreators(setModalData, dispatch);
     const setChats = bindActionCreators(setChatsData, dispatch);
-    const { mine, data } = useSelector(state => state.status);
+    const { mine, data, newStatus, tracker } = useSelector(state => state.status);
     const setFixedStatus = bindActionCreators(setFixedStatusData, dispatch);
 
     const startConvo = (_id) => {
@@ -69,6 +68,14 @@ const ChatSidePanel = () => {
 
     useEffect(() => { setPos(chats.map(ch => ch.pos)); }, [chats.length]);
 
+    useEffect(() => {
+        const mp = [];
+        for(let i = 0; i < data.length; i++) {
+            if(data[i].completed) mp.push(data[i].account._id);
+        }
+        setChats('updateStatus', mp);
+    }, [tracker]);
+
     const showModal = (type) => { setter(type); };
     const transY = (index) => search ? pos[index] * 80 : chats[index].pos * 80;
 
@@ -93,10 +100,14 @@ const ChatSidePanel = () => {
                     break;
                 }
             }
-            setChats('hasStatus', _id, false);
         }
+        setChats('hasStatus', _id, false);
         return navigate(`/app/chats/profile/${_id}`);
     };
+
+    useEffect(() => {
+        if(total > 0) document.title = `Gab (${total > 99 ? '99+' : total})`;
+    }, [total]);
 
 
     return (
@@ -104,8 +115,9 @@ const ChatSidePanel = () => {
             <header>
                 <div className='csp-header'>
                     <div className='csp-header-left' 
-                    onClick={() => navigate('/app/chats/profile/me')}>
-                        {total > 0 && <div className='unread-count'>{total}</div>}
+                    onClick={() => navigate('/app/chats/profile/me')}
+                    style={{cursor: 'pointer'}}>
+                        {/* {total > 0 && <div className='unread-count'>{total}</div>} */}
                         <img src={user?.img||avatar} alt='user' />
                     </div>
                     <div className='csp-header-right'>
