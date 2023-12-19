@@ -64,7 +64,7 @@ export const searchWordUtil = (
 export const scrollUtil = (
     e, curRef, nxtRef, eles, setFixedTime,
     setShowScrollDown, messages, unreadsRef,
-    unreadsState, setUnreadState, unReads
+    unreadsState, setUnreadState, unReads, scrollRef
     // taggedRef, taggedState, setTaggedState
 ) => {
     const elements = eles.current;
@@ -98,12 +98,18 @@ export const scrollUtil = (
     } 
     
     if(Math.abs(scrollHeight - clientHeight - scrollTop) < 1) {
-        setShowScrollDown(false);
+        if(scrollRef.current) {
+            setShowScrollDown(false);
+            scrollRef.current = false;
+        }
         if(unReads.current > unreadsState.current) {
             setUnreadState(unReads.current);
             unreadsState.current = unReads.current;
         }
     } else {
-        setShowScrollDown(true);
+        if(!scrollRef.current) {
+            setShowScrollDown(true);
+            scrollRef.current = true;
+        }
     }
 };

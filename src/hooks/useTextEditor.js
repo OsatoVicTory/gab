@@ -16,9 +16,9 @@ const useTextEditor = (
     // const mp = useRef(new Map());
     
     const runInput = (e) => {
-        if(e.inputType == 'insertParagraph') {
+        if(e.inputType === 'insertParagraph') {
             insertAndSetRange('', e['$emoji']);
-            replaceChildrenNode([pRef.current], divRef.current);
+            divRef.current.removeChild(divRef.current.lastChild);
             setCaretPos(divRef.current, 1);
             send();
         } else {
@@ -26,6 +26,7 @@ const useTextEditor = (
             if(e.inputType == 'deleteContentBackward') {
                 textContent.current = putText(eKey, textContent.current, Pos.current); 
             } else textContent.current = putText(eKey, textContent.current, Pos.current);
+            Pos.current = Math.max(0, Pos.current);
             
             if(textContent.current?.length == 0) {
                 if(!empty) setEmpty(true);
@@ -236,6 +237,10 @@ const useTextEditor = (
             }
             nodeArray.push(lstNode);
         }
+        if(divRef.current.querySelector('p') === null) {
+            divRef.current.innerText = '';
+            divRef.current.appendChild(pRef.current);
+        }
         if(!ranges[0]) {
             const node = document.createElement('span');
             node.innerText = '';
@@ -255,7 +260,8 @@ const useTextEditor = (
 
     function setCaretPos(caretNode, offsetPos) {
         if(Range.current && Sel.current) {
-            Range.current.setStart(caretNode, Math.max(0, offsetPos));
+            if(!caretNode) Range.current.setStart(pRef.current, offsetPos||0);
+            else Range.current.setStart(caretNode, Math.max(0, offsetPos||0));
             Range.current.collapse(true);
             Sel.current.removeAllRanges();
             Sel.current.addRange(Range.current);

@@ -18,3 +18,6 @@
     cursor: pointer;
     text-decoration: none;
 }
+.aLink span {
+    color: var(--lightblue) !important;
+}

@@ -131,11 +131,11 @@ div .chatSidePanel {
 }
 .cspm-pic.true {
     border-radius: 50%;
-    border: 0.8px solid var(--green);
+    border: 0.9px solid var(--green);
 }
 .cspm-pic img {
-    width: 48px;
-    height: 48px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     object-position: center;
     object-fit: cover;

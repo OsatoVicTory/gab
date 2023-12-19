@@ -3,11 +3,6 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Alert from './component/Alert';
 import SuspenseLoading from './component/suspense';
-// import Gab from './gab';
-// import LogInPage from './pages/login';
-// import SignUpPage from './pages/signup';
-// import VerifyAccount from './pages/verify-account';
-// import NoData from './component/NoData';
 const Gab = lazy(() => import('./gab'));
 const LogInPage = lazy(() => import('./pages/login'));
 const SignUpPage = lazy(() => import('./pages/signup'));
@@ -21,6 +16,10 @@ function App() {
         
         <Alert />
         <Routes>
+          <Route path='/' element={
+            <Suspense fallback={<SuspenseLoading />}><LogInPage /></Suspense>
+          } />
+
           <Route path='/login' element={
             <Suspense fallback={<SuspenseLoading />}><LogInPage /></Suspense>
           } />

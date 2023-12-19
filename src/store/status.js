@@ -7,7 +7,6 @@ const INITIAL_STATE = { mine: [], data: [], newStatus: 0, loaded: false };
 export const statusReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case 'SET_STATUS_DATA':
-            console.log('status action.payload=>');
             return Utils[action.payload[0]]({...state}, action.payload.slice(1, 10));
         default:
             return state;

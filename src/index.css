@@ -48,7 +48,7 @@ code {
   font-style: italic !important;
 }
 .line-through-span span {
-  text-decoration: line-through;
+  text-decoration: line-through !important;
 }
 img {
   image-rendering: -webkit-optimize-contrast;

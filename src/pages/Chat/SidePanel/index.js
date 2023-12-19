@@ -107,6 +107,7 @@ const ChatSidePanel = () => {
 
     useEffect(() => {
         if(total > 0) document.title = `Gab (${total > 99 ? '99+' : total})`;
+        else document.title = 'Gab';
     }, [total]);
 
 

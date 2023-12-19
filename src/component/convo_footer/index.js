@@ -33,6 +33,7 @@ const Footer = ({ tagged, setTagged, account, socket, isBlocked }) => {
     const pRef = useRef();
     const placeholderRef = useRef();
     const linkRef = useRef('');
+    const typingRef = useRef(false);
 
     const checkLinkAndScrape = async (inputs) => {
         try {
@@ -53,8 +54,7 @@ const Footer = ({ tagged, setTagged, account, socket, isBlocked }) => {
                     fetchScrappedData(linkRef.current).then(res => {
                         setScrappedData({ ...res.data, loaded: true });
                     }).catch(err => {
-                        console.log(err);
-                        const title = linkRef.current.split('://')[1].split('.')[0];
+                        const title = linkRef.current.split('://')[1]?.split('.')[0]||'';
                         setScrappedData({ loaded: true, site: linkRef.current, title, pTag: title });
                     });
                 }, 1000);
@@ -71,16 +71,16 @@ const Footer = ({ tagged, setTagged, account, socket, isBlocked }) => {
 
     };
 
-    useEffect(() => {
-        const ele = document.getElementById('gab-main-footer');
-        if(ele) {
-            let new_class = 'chat-footer';
-            if(tagged?.senderId) new_class += ' taggedOpened';
-            if(scrappedData?.loaded !== undefined) new_class += ' scrappedOpened';
-            if(images.length > 0) new_class += ' imagesOpened';
-            ele.className = new_class;
-        }
-    }, [tagged?.senderId, scrappedData?.loaded, images.length]);
+    // useEffect(() => {
+    //     const ele = document.getElementById('gab-main-footer');
+    //     if(ele) {
+    //         let new_class = 'chat-footer';
+    //         if(tagged?.senderId) new_class += ' taggedOpened';
+    //         if(scrappedData?.loaded !== undefined) new_class += ' scrappedOpened';
+    //         if(images.length > 0) new_class += ' imagesOpened';
+    //         ele.className = new_class;
+    //     }
+    // }, [tagged?.senderId, scrappedData?.loaded, images.length]);
 
     const send = async () => {
         try {
@@ -126,6 +126,7 @@ const Footer = ({ tagged, setTagged, account, socket, isBlocked }) => {
             setScrappedData(null);
             setClearDiv(true);
             setSendState(false);
+            socket.emit('stoppedtyping', { typer: user._id, receiver: account._id });
         } catch (err) {
             setStatusMessage({type:'error',text:err.response?.data.message||err.message});
             setSendLoading(false);
@@ -152,10 +153,16 @@ const Footer = ({ tagged, setTagged, account, socket, isBlocked }) => {
     };
     
     const typing = () => {
-        socket.emit('typing', { typer: user._id, receiver: account._id });
+        if(!typingRef.current) {
+            socket.emit('typing', { typer: user._id, receiver: account._id });
+        }
+        typingRef.current = true;
     };
     const stoppedTyping = () => {
-        socket.emit('stoppedtyping', { typer: user._id, receiver: account._id });
+        if(typingRef.current) {
+            socket.emit('stoppedtyping', { typer: user._id, receiver: account._id });
+        }
+        typingRef.current = false;
     };
 
     useEffect(() => {

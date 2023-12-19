@@ -52,6 +52,8 @@ const ChatPanel = ({ socket }) => {
     const unReadsRef = useRef();
     const unReadsCnt = useRef(0);
     const unReadsStateRef = useRef(0);
+    const messagesRef = useRef(0);
+    const scrollRef = useRef(false);
 
     const handleCheck = (_id) => {
         if(!checked.includes(_id)) setChecked([...checked, _id]);
@@ -82,7 +84,7 @@ const ChatPanel = ({ socket }) => {
         scrollUtil(
             e, curRef, nxtRef, elementsRef, setFixedTime, 
             setShowScrollDown, messages, unReadsRef, 
-            unReadsStateRef, setUnreadsState, unReadsCnt
+            unReadsStateRef, setUnreadsState, unReadsCnt, scrollRef
             // taggedRef.current, taggedState, setTaggedState
         );
     };
@@ -116,7 +118,6 @@ const ChatPanel = ({ socket }) => {
     }, [id]);
     
     useEffect(() => {
-        console.log('unReads', unReads, 'unreadsState', unreadsState);
         unReadsCnt.current = unReads;
         if(unReads > unreadsState) {
             const diff = unReads - unreadsState;
@@ -129,12 +130,20 @@ const ChatPanel = ({ socket }) => {
             }
             const ele = document.getElementById(`Gab-${message_id}`);
             if(ele) unReadsRef.current = ele;
+            setShowScrollDown(true);
         }
     }, [unReads]);
 
     useEffect(() => {
         if(focus) scrollToMessage(focus, setFocus);
     }, [focus]);
+
+    useEffect(() => {
+        if(messages?.length > messagesRef.current) {
+            if(messages[messages.length - 1]?.senderId === user._id) scrollTo();
+        }
+        messagesRef.current = messages?.length || 0;
+    }, [messages?.length]);
 
     const checkSenders = (idx) => idx && messages[idx - 1].senderId !== messages[idx].senderId;
     const checkFnc = (_id) => !checkBox ? false : checked.includes(_id) ? 'Yes' : checkBox;
@@ -179,7 +188,7 @@ const ChatPanel = ({ socket }) => {
             pos={modal.pos} closeModal={closeModal} setTagged={setTagged}
             data={modal.data} openModal={openDropDownModal} />}</span>
 
-            <span>{modal?.type === 'message_info' && <MessageInfoModal
+            <span>{modal?.type === 'message_info' && <MessageInfoModal  
             pos={modal.pos} closeModal={closeModal} data={modal.data} />}</span>
 
             {!acct?.account && <NoData />}

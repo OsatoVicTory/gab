@@ -92,7 +92,7 @@ const AllMessageReactions = ({ pos, closeModal, data, user, acct, socket }) => {
                                     {
                                         val.userId === user._id ? 
                                         'You' : 
-                                        contactName(acct.phoneNumber, user.contacts)
+                                        contactName(acct.userId, user.contacts) || acct.phoneNumber
                                     }
                                 </span>
                                 

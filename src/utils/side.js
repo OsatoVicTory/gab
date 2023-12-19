@@ -48,7 +48,7 @@ export const MessageComponent = ({ msg }) => {
                 msg.message ? 
                 <TextWithEmoji text={msg.message} 
                 CLX={'txt-14 cspm-14'} clx={'cspm-inner'}
-                font={window.innerWidth <= 450 ? 14 : 15} search={null} /> : 
+                font={window.innerWidth <= 450 ? 14 : 15} search={''} /> : 
                 <span className={'txt-14 cspm-14'}>
                     {msg.audio ? 'Audio' : 
                     msg.status_tagged ? 
@@ -64,7 +64,7 @@ export const MessageComponent = ({ msg }) => {
                 <TextWithEmoji text={msg.message} 
                 CLX={'txt-14 cspm-14'} clx={'cspm-inner'}
                 font={window.innerWidth <= 450 ? 14 : 15} 
-                search={null} />
+                search={''} />
             </div>
         )
     }

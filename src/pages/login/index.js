@@ -8,7 +8,7 @@ import { loginUser } from '../../services/user';
 import LoadingSpinner from "../../component/loading/loading";
 import { BsGoogle } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
-import logo from "../../images/img1.jpg";
+import logo from "../../images/logo.jpg";
 import { SERVER } from '../../config';
 import { responseMessage } from '../../utils/others';
 import Token from '../../services/token';

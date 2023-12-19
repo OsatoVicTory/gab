@@ -43,7 +43,7 @@ const StatusViewers = ({ closeModal, data }) => {
         <div className='Status__Viewers' ref={modalRef}>
             <div className='stV__top'>
                 <span>Viewers</span>
-                <div className='stV_close'>
+                <div className='stV_close' onClick={() => closeModal()}>
                     <CloseIcon className={'stV_close_icon'} />
                 </div>
             </div>

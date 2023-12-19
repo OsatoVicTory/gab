@@ -7,7 +7,7 @@ import { setStatusMessageData } from "../../store/actions";
 import { debounce, responseMessage } from '../../utils/others';
 import { signupUser, goodUserDetails } from '../../services/user';
 import LoadingSpinner from "../../component/loading/loading";
-import logo from "../../images/img1.jpg";
+import logo from "../../images/logo.jpg";
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import CountryCodeModal from './codes';
 

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import StatusView from './ViewPanel';
 import StatusViewStatic from './ViewPanel/static';
 import './styles.css';
+import logo from '../../images/logo.jpg';
 
 const StatusMain = ({ status, closeStatusView, socket, stopperRef }) => {
 
@@ -12,7 +13,10 @@ const StatusMain = ({ status, closeStatusView, socket, stopperRef }) => {
 
     return (
         <div className={`statusMain ${status.type ? 'show' : 'hide'}`}>
-            {!status.type && <div className='no-status'><h1>No Status</h1></div>}
+            {!status.type && <div className='no-status'>
+                <h1>Status updates</h1>
+                <img src={logo} alt='logo' />
+            </div>}
             {(status.type && status.type !== 'mine') && <div className='status'>
                 <StatusView data={status} socket={socket}
                 closeStatusView={closeStatusView} stopperRef={stopperRef} />

@@ -19,6 +19,17 @@ div .statusMain {
     width: 100%;
     height: 100%;
 }
+.no-status {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+.no-status img {
+    width: 200px;
+    height: 200px;
+    margin-top: 24px;
+}
 @media screen and (max-width: 800px) {
     .STATUS .STATUS_SIDE {
         width: 40%;
