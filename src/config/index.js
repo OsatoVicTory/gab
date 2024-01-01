@@ -1,5 +1,5 @@
-export const FRONTEND_URL = 'http://localhost:3000';
+export const FRONTEND_URL = 'https://gab-app.netlify.app';
 
-export const SERVER = 'http://localhost:5000';
+export const SERVER = 'https://gab-li18.onrender.com';
 
 // dont add trailing / to any of the above url
