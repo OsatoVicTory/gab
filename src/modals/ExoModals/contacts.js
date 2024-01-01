@@ -68,7 +68,8 @@ const ContactsModal = ({ closeModal }) => {
                             <div className='fl-texts'>
                                 <div className='fl-span'>
                                     <span className='txt-17'>
-                                        {contactName(val.phoneNumber, user.contacts)}
+                                        {/* {contactName(val._id, user.contacts)} */}
+                                        {val.userName}
                                     </span>
                                 </div>
                                 <div className='fl-span'>

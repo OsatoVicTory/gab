@@ -65,6 +65,7 @@ const SidePanelModal = ({ pos, closeModal, data, contacts }) => {
     const logOutFn = () => {
         setModal('log-out');
         closeModal();
+        navigate('/login');
     };
 
     const ForChats = () => {
@@ -83,7 +84,7 @@ const SidePanelModal = ({ pos, closeModal, data, contacts }) => {
         return (
             <div className='SPM_'>
                 <div className='spm' onClick={() => {
-                    navigate(`/app/profile/me`);
+                    navigate('/app/chats/profile/me');
                     closeModal();
                 }}>Settings</div>
                 <div className='spm' onClick={logOutFn}>Log out</div>
