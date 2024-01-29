@@ -60,9 +60,14 @@ const useTextEditor = (
         }
     }
     function mouseUp() {
+        // Check if the user agent string contains "Mobi" (common in mobile devices)
+        if (/Mobi/.test(navigator.userAgent)) return;
+        
         selectedRange.current = window.getSelection().toString();
     };
     function mouseDown() {
+        if (/Mobi/.test(navigator.userAgent)) return;
+        
         if(textContent.current?.length == 0) {
             setCaretPos(pRef.current, 0);
             return Pos.current = 0;
@@ -73,6 +78,8 @@ const useTextEditor = (
         divRef.current?.focus();
     };
     function runKeydown(e) {
+        if (/Mobi/.test(navigator.userAgent)) return;
+        
         e = e || window.event;
         if(isArrowKeys(e)) { 
             setTimeout(getAndSetCaretPos, 0); 
