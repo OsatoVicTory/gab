@@ -47,6 +47,8 @@ const ChatSidePanel = () => {
     };
     
     const filterChats = () => {
+        if(!search) return setPos(chats.map(ch => ch.pos));
+        
         const ps = [];
         let fnd = 0;
         const srch = search.toLowerCase();
@@ -59,7 +61,7 @@ const ChatSidePanel = () => {
         for(let i = 0; i < chats.length; i++) {
             const { phoneNumber, _id } = chats[i].account;
             const userName = ((contactName(_id, user.contacts)) || chats[i].account.userName)
-            if(!userName.toLowerCase().includes(srch) ||
+            if(!userName.toLowerCase().includes(srch) &&
             !phoneNumber.includes(srch)) ps[i] = fnd++;
         }
         setPos(ps);
