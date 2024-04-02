@@ -92,7 +92,7 @@ const MessageContent = ({
                     <div className='msg-reactions'>
                         {reactions.map((val, idx) => (
                             <div className='msg-reaction' key={`msgr-${idx}`}>
-                                <EmojiRender emoji={val.emoji} size={21} />
+                                <EmojiRender emoji={val.emoji} size={19} />
                             </div>
                         ))}
                     </div>
