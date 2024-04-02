@@ -65,6 +65,7 @@ div .message_text {
     text-decoration: none;
     font: inherit;
     display: unset;
+    word-break: break-all;
     line-height: inherit;
     color: #111b21;
 }
