@@ -17,7 +17,7 @@ export const sendDirectMessage = async (data) => {
 export const fetchScrappedData = async (link) => {
     // had to use new server cus of memory limit on SERVER affecting scrapping of data
     const serverUrl = 'https://backend-web-scraping.onrender.com/scrape/h/anything';
-    return axios.post(serverUrl, { url: link, timeout: 90000 });
+    return axios.post(serverUrl, { url: link, timeout: 63000 });
 }
 
 export const editDirectMessage = async (data) => {
