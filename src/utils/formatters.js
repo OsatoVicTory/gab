@@ -15,7 +15,7 @@ export const formatDay_TimeFromDate = (date) => {
     if(date_form.getFullYear() !== cur_date.getFullYear()) {
         return `${Zs(date_form.getDate())}/${Zs(date_form.getMonth()+1)}/${F(date_form.getFullYear())}`;
     } else if(date_form.getMonth() !== cur_date.getMonth()) {
-        return `${date_form.getDate()}/${Zs(date_form.getMonth()+1)}`;
+        return `${Zs(date_form.getDate())}/${Zs(date_form.getMonth()+1)}`;
     } else if(cur_date.getDay() !== date_form.getDay()) {
         return String(date_form).slice(0, 3);
     } else {
